@@ -47,6 +47,12 @@ fi
 
 echo "Installing requirements, if any"
 if [ -f requirements.txt ]; then
+    if grep -q '^mariadb' requirements.txt && ! command -v mariadb_config >/dev/null 2>&1; then
+        echo "Error: 'mariadb_config' not found." >&2
+        echo "The 'mariadb' Python package requires the MariaDB Connector/C development libraries." >&2
+        echo "Install them with: sudo apt install libmariadb-dev" >&2
+        return 1 2>/dev/null || exit 1
+    fi
     pip install --upgrade -r requirements.txt || echo "Warning: pip install failed; some packages may be missing." >&2
 fi
 echo
