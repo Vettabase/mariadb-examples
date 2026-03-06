@@ -14,6 +14,7 @@ table using `INSERT … ON DUPLICATE KEY UPDATE`.
 | Requirement | Notes |
 |---|---|
 | MariaDB ≥ 10.6 | Must be reachable from the host running the script |
+| MariaDB Connector/C | Required to build the `mariadb` Python package; install with `sudo apt install libmariadb-dev` (Debian/Ubuntu) or `sudo yum install mariadb-connector-c-devel` (RHEL/CentOS) or `brew install mariadb-connector-c` (macOS) |
 | Python 3.8+ | Including the `python3-venv` package (e.g. `sudo apt install python3-venv`) |
 | `ping` binary | Typically pre-installed on Linux/macOS/Windows |
 | Git | Required by `run.sh` to pull the latest code |
